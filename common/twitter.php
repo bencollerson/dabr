@@ -327,7 +327,6 @@ function twitter_media_page($query)
 			$content = "<p>Upload success. Image posted to Twitter.</p>
 							<p><img src=\"" . $image_url . "\" alt='' /></p>
 							<p>". twitter_parse_tags($text) . "</p>";
-							//<p><img src=\"" . IMAGE_PROXY_URL . "x50/" . $image_url . "\" alt='' /></p>
 			
 		} else {
 			$content = "Damn! Something went wrong. Sorry :-("  
@@ -1798,22 +1797,18 @@ function theme_full_name($user) {
 // http://groups.google.com/group/twitter-development-talk/browse_thread/thread/50fd4d953e5b5229#
 function theme_get_avatar($object) {
 	if ($_SERVER['HTTPS'] == "on" && $object->profile_image_url_https) {
-//		return IMAGE_PROXY_URL . "48/48/" . $object->profile_image_url_https;
 		return $object->profile_image_url_https;
 	}
 	else {
-//		return IMAGE_PROXY_URL . "48/48/" . $object->profile_image_url;
 		return $object->profile_image_url;
 	}
 }
 
 function theme_get_full_avatar($object) {
 	if ($_SERVER['HTTPS'] == "on" && $object->profile_image_url_https) {
-		//return IMAGE_PROXY_URL . str_replace('_normal.', '.', $object->profile_image_url_https);
 		return str_replace('_normal.', '.', $object->profile_image_url_https);
 	}
 	else {
-		//return IMAGE_PROXY_URL . str_replace('_normal.', '.', $object->profile_image_url);
 		return str_replace('_normal.', '.', $object->profile_image_url);
 	}
 }
